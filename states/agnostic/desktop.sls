@@ -1,0 +1,3 @@
+include:
+  - awesome
+  - terminator

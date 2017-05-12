@@ -1,0 +1,16 @@
+# vi:syntax=tmux
+set -sg escape-time 0
+set -g base-index 1
+set -g pane-base-index 1
+set -g renumber-windows on
+set -g focus-events on
+
+bind-key r source-file ~/.tmux.conf \; display-message "~/-tmux.conf reloaded"
+
+bind Up split-window -b -v
+bind Down split-window -v
+bind Left split-window -b -h
+bind Right split-window -h
+
+set -g monitor-activity on
+set -g visual-activity off

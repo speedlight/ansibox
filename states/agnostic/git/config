@@ -1,0 +1,6 @@
+[user]
+	email = tao.ceel@gmail.com
+	name = speedlight
+[alias]
+	st = status
+    cam = commit -am
