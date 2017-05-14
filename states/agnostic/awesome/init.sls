@@ -1,5 +1,11 @@
 {%- set default_git_url = 'https://github.com/copycat-killer/awesome-copycats' %}
 
+awesome-install:
+  pkg.installed:
+    - pkgs:
+      - awesome
+      - awesome-extra
+
 awesome-copycat:
   git.latest:
     - name: https://github.com/speedlight/awesome-copycats.git

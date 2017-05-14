@@ -1,20 +1,18 @@
 "<-----------------<>------------------>"
 "   Speedlight NeoVim configuration     "
+"       For saltedbox repository        "
 " https:/github.com/speedlight/dotfiles "
 "<-----------------<>------------------>"
 
-" Automatic Vundle instalation taken from:
-" http://erikzaadi.com/2012/03/19/auto-installing-vundle-from-your-vimrc/
-
 " Required:
-set runtimepath+={{ grains.homedir }}/.config/dein/github.com/Shougo/dein.vim
+set runtimepath+={{ grains.homedir }}/.config/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
 if dein#load_state('{{ grains.homedir }}/.config/dein/')
     call dein#begin('{{ grains.homedir }}/.config/dein/')
 
     call dein#add('{{ grains.homedir }}/.config/dein/')
-    call dein#add('{{ grains.homedir }}/.config/dein/github.com/Shougo/dein.vim')
+    call dein#add('{{ grains.homedir }}/.config/dein/repos/github.com/Shougo/dein.vim')
 
     " The Shougo collection
     call dein#add('Shougo/neosnippet.vim')
