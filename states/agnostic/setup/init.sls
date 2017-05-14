@@ -6,6 +6,7 @@ install-base-packages:
       - python3-pip
       - python-pip
       - htop
+      - arandr
 
 fonts-dir:
   file.recurse:
