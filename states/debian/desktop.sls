@@ -5,3 +5,4 @@ install-desktop-packages:
       - firefox-esr
       - arandr
       - network-manager-gnome
+      - remmina
