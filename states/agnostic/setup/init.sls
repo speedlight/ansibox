@@ -6,7 +6,7 @@ install-base-packages:
       - python3-pip
       - python-pip
       - htop
-      - arandr
+      - dnsutils
 
 fonts-dir:
   file.recurse:

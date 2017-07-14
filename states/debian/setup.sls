@@ -3,6 +3,7 @@ install-debian-packages:
     - pkgs:
       - build-essential
       - curl
+      - tree
 purge-packages:
   pkg.purged:
     - pkgs:

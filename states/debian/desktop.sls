@@ -6,3 +6,7 @@ install-desktop-packages:
       - arandr
       - network-manager-gnome
       - remmina
+      - thunar
+      - thunar-volman
+      - thunar-archive-plugin
+      - thunar-gtkhash
