@@ -4,6 +4,7 @@ install-debian-packages:
       - build-essential
       - curl
       - tree
+      - gksu
 purge-packages:
   pkg.purged:
     - pkgs:
@@ -11,3 +12,4 @@ purge-packages:
       - gnome-sudoku
       - gnome-mahjongg
       - rhythmbox
+      - nautilus

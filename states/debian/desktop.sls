@@ -10,3 +10,5 @@ install-desktop-packages:
       - thunar-volman
       - thunar-archive-plugin
       - thunar-gtkhash
+      - zathura
+      - lxappearance
