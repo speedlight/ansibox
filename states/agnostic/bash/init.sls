@@ -1,4 +1,4 @@
-{%- set default_git_url = 'https://github.com/magicmonty/bash-git-prompt' %}
+{%- set bash_git_url = 'https://github.com/magicmonty/bash-git-prompt' %}
 
 bash-install:
   pkg.installed:
@@ -15,9 +15,18 @@ bash-bashrc:
     - require:
       - bash-install
 
+bash-aliases:
+  file.managed:
+    - name: {{ grains.homedir }}/.bash_aliases.d/aliases_general
+    - source: salt://bash/bash_aliases/aliases_general 
+    - user: {{ grains.user }}
+    - group: {{ grains.user }}
+    - require:
+      - bash-install
+
 bash-git-prompt:
   git.latest:
-    - name: {{ default_git_url }}
+    - name: {{ bash_git_url }}
     - target: {{ grains.homedir }}/bin/bash-git-prompt
     - user: {{ grains.user }}
 
