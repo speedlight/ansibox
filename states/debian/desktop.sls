@@ -12,3 +12,6 @@ install-desktop-packages:
       - thunar-gtkhash
       - zathura
       - lxappearance
+
+include:
+  -  conky-osd
