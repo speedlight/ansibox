@@ -8,6 +8,13 @@ conky:
     - group: {{ grains.user }}
     - makedirs: True
 
+{{ grains.homedir }}/.conky/conky_start:
+  file.managed:
+    - source: salt://conky/conky-osd/conky_start
+    - user: {{ grains.user }}
+    - group: {{ grains.user }}
+    - mode: 655
+
 conky.mon1bg:
   file.managed:
     - name: {{ grains.homedir }}/.config/awesome/themes/speedlight/wall.png
