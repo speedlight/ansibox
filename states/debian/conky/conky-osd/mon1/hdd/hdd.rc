@@ -45,7 +45,7 @@ color3 d0fefb
 color4 2f3d40
 color5 ff6c4a
 
-lua_load ~/conky/mon1/hdd/bargraph_hdd.lua
+lua_load ~/.conky/mon1/hdd/bargraph_hdd.lua
 lua_draw_hook_pre main_bars
 
 TEXT
