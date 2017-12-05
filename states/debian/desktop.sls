@@ -14,4 +14,4 @@ install-desktop-packages:
       - lxappearance
 
 include:
-  -  conky-osd
+  -  conky
