@@ -15,6 +15,12 @@ bash-bashrc:
     - require:
       - bash-install
 
+{{ grains.homedir }}/.bash_aliases.d:
+  file.directory:
+    - user: {{ grains.user }}
+    - group: {{ grains.user }}
+    - mode: 755
+
 bash-aliases:
   file.managed:
     - name: {{ grains.homedir }}/.bash_aliases.d/aliases_general
