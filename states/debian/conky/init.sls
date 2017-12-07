@@ -1,4 +1,4 @@
-conky:
+conky-all:
   pkg.installed
 
 {{ grains.homedir }}/.conky:
@@ -13,7 +13,7 @@ conky:
     - source: salt://conky/conky-osd/conky_start
     - user: {{ grains.user }}
     - group: {{ grains.user }}
-    - mode: 655
+    - mode: 755
 
 conky.mon1bg:
   file.managed:

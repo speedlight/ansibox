@@ -8,7 +8,6 @@ double_buffer yes
 no_buffers yes
 text_buffer_size 256 
 imlib_cache_size 15000
-max_specials 10000
 max_user_text 15000
 diskio_avg_samples 2 							
 format_human_readable yes 						
@@ -16,12 +15,12 @@ border_inner_margin 0
 border_outer_margin 0							
 
 # -- Window specifications -- #
-own_window no 								
-own_window_type normal 					
+own_window yes		
+own_window_type normal
 own_window_transparent yes 			
 own_window_argb_visual yes 		
 own_window_argb_value 0 	
-own_window_hints undecorated,skip_taskbar,skip_pager,below,sticky 	
+own_window_hints undecorated,skip_taskbar,skip_pager,below,sticky
 own_window_title drive
 minimum_size 258 144 							
 maximum_width 258 							
@@ -63,10 +62,10 @@ ${goto 430}${voffset 10}${color2}${fs_used /}${color}
 ${goto 560}${voffset -10}${color2}${fs_size /}${color}
 ${alignr 40}${voffset -10}${color1}Root${color}
 #Home paraméterek#
-${goto 430}${voffset 10}${color2}${fs_used /home/ceguez}${color}
-${goto 560}${voffset -10}${color2}${fs_size /home/ceguez}${color}
+${goto 430}${voffset 10}${color2}${fs_used $HOME}${color}
+${goto 560}${voffset -10}${color2}${fs_size $HOME}${color}
 ${alignr 40}${voffset -10}${color1}Home${color}
 #Data paraméterek#
-${goto 430}${voffset 10}${color2}${fs_used /home/ceguez/Documentos/}${color}
-${goto 560}${voffset -10}${color2}${fs_size /home/ceguez/Documentos/}${color}
+${goto 430}${voffset 10}${color2}${fs_used $HOME/Documentos/}${color}
+${goto 560}${voffset -10}${color2}${fs_size $HOME/Documentos/}${color}
 ${alignr 40}${voffset -10}${color1}Data${color}

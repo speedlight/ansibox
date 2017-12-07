@@ -5,6 +5,8 @@ install-debian-packages:
       - curl
       - tree
       - gksu
+      - wmctrl
+      - libcairo2
 purge-packages:
   pkg.purged:
     - pkgs:

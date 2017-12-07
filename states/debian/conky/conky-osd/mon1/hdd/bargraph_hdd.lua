@@ -139,7 +139,7 @@ function conky_main_bars()
 			},
 		{	--[ Graph for home ]--
                         name="fs_used_perc",
-			arg="/home/ceguez/",
+			arg="$HOME",
 			max=100,
 			alarm=50,
 			alarm_colour={0xFFFFFF,0.72},
@@ -155,7 +155,7 @@ function conky_main_bars()
 			},
 		{	--[ Graph for /var ]--
                         name="fs_used_perc",
-			arg="/home/ceguez/Documentos/",
+			arg="$HOME/Documentos/",
 			max=100,
 			alarm=50,
 			alarm_colour={0xFFFFFF,0.72},
