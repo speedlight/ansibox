@@ -5,7 +5,7 @@ sleep 1
 # 2. asztal
 #
 (sleep 3 && wmctrl -s 1) &
-(sleep 4 && wmctrl -s 1 && conky -c ~/.conky/mon1/hdd/hdd.rc) &
+#(sleep 4 && wmctrl -s 1 && conky -c ~/Descargas/gitdown/saltedbox/states/debian/conky/conky-osd/mon1/hdd/hdd.rc) &
 (sleep 4 && wmctrl -s 1 && conky -c ~/Descargas/gitdown/saltedbox/states/debian/conky/conky-osd/mon1/cpu/cpu.rc) &
 #(sleep 4 && wmctrl -s 1 && conky -c ~/.conky/mon1/cpu/cpu.rc) &
 #(sleep 4 && wmctrl -s 1 && conky -c ~/.conky/mon1/cpu/cpuanim.rc) &

@@ -7,6 +7,7 @@ install-debian-packages:
       - gksu
       - wmctrl
       - libcairo2
+      - lua5.3
 purge-packages:
   pkg.purged:
     - pkgs:

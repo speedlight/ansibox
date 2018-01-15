@@ -12,6 +12,7 @@ install-desktop-packages:
       - thunar-gtkhash
       - zathura
       - lxappearance
+      - xsensors
 
 include:
   -  conky
