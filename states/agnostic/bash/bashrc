@@ -23,13 +23,6 @@ HISTTIMEFORMAT="%F %T "
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
@@ -43,28 +36,24 @@ esac
 force_color_prompt=yes
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
 	color_prompt=yes
     else
 	color_prompt=
     fi
 fi
 
-#bash-git-prompt script
-GIT_PROMPT_SHOW_UNTRACKED_FILES=no
-GIT_PROMPT_THEME=Single_line_Minimalist
-GIT_PROMPT_FILE=~/.git_prompt-colors.sh
-
-if [ -f $HOME/bin/bash-git-prompt/gitprompt.sh ]; then source $HOME/bin/bash-git-prompt/gitprompt.sh;
+GIT_PS1_SHOWDIRTYSTATE=1                                                                                                   
+GIT_PS1_SHOWSTASHSTATE=1                                                                                                   
+GIT_PS1_SHOWUNTRACKEDFILES=1                                                                                               
+GIT_PS1_SHOWUPSTREAM="auto"                                                                                                
+GIT_PS1_STATESEPARATOR="|"                                                                                                 
+GIT_PS1_SHOWCOLORHINTS=1 
 
 if [ "$color_prompt" = yes ]; then
-        export PS1='\[\e[38;5:014m\]┌╼[\[\e[0;003m\]\w\[\e[38;5;014m\]]\n└╼  \[\e[0;32m\]'
+        export PS1='\[\e[38;5:009m\][\h]\[\e[38;5;013m\]⌥ \[\e[38;5;012m\][\w] \n\[\e[38;5;013m\]⎇ \[$(__git_ps1)\]\[\e[0;032m\]'
     else
         export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     fi
-fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
@@ -85,13 +74,13 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias dh='df -h'
 fi
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
 if [ -d ~/.bash_aliases.d ]; then
     for ba in $(ls -1 ~/.bash_aliases.d); do
         . ~/.bash_aliases.d/$ba

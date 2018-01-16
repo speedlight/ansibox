@@ -1,4 +1,4 @@
-{%- set bash_git_url = 'https://github.com/magicmonty/bash-git-prompt' %}
+{%- set git_prompt_url = 'https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh' %}
 
 bash-install:
   pkg.installed:
@@ -30,11 +30,15 @@ bash-aliases:
     - require:
       - bash-install
 
-bash-git-prompt:
-  git.latest:
-    - name: {{ bash_git_url }}
-    - target: {{ grains.homedir }}/bin/bash-git-prompt
+git-prompt:
+  file.managed:
+    - name: {{ grains.homedir }}/bin/git-prompt.sh
+    - source: {{ git_prompt_url }}
+    - skip_verify: true
     - user: {{ grains.user }}
+    - group: {{ grains.user }}
+    - require:
+      - bash-install
 
 screenfetch:
   file.managed:
