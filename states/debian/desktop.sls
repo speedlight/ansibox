@@ -2,7 +2,7 @@ install-desktop-packages:
   pkg.installed:
     - pkgs:
       - thunderbird
-      - firefox-esr
+      - firefox
       - arandr
       - network-manager-gnome
       - remmina
@@ -13,6 +13,7 @@ install-desktop-packages:
       - zathura
       - lxappearance
       - xsensors
+      - xfburn
 
 include:
   -  conky

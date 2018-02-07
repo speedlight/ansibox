@@ -5,6 +5,8 @@ agnostic-packages:
       - xscreensaver
       - xscreensaver-gl-extra
       - tig
+      - sysstat
+      - isag
 include:
   - awesome
   - terminator
