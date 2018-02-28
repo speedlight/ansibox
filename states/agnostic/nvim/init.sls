@@ -1,13 +1,13 @@
-#neovim-python3:
-#  pkg.installed:
-#    - name: python3-neovim
+python3-neovim:
+  pkg.installed:
+    - name: python3-neovim
 
 neovim-install:
   pkg.installed:
     - name: neovim
     - bin_env: /usr/bin/pip3
-#    - require:
-#      - pkg: neovim-python3
+    - require:
+      - pkg: python3-neovim
 
 vim-config:
   file.managed:
@@ -46,3 +46,10 @@ dein-install:
     - runas: {{ grains.user }}
     - require:
       - dein-download
+
+dein-update:
+  cmd.run:
+    - name: nvim +'call#update()' +qall
+    - runas: {{ grains.user }}
+    - require:
+      - dein-install
