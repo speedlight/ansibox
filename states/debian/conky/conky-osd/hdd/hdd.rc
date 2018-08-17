@@ -1,0 +1,75 @@
+conky.config = {
+-- -- Conky settings -- #
+	background = true,
+	update_interval = 1,
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	override_utf8_locale = true,
+	double_buffer = true,
+	no_buffers = true,
+	text_buffer_size = 256,
+	imlib_cache_size = 15000,
+	max_user_text = 15000,
+	diskio_avg_samples = 2,
+	format_human_readable = true,
+	border_inner_margin = 0,
+	border_outer_margin = 0,
+
+-- -- Window specifications -- #
+	own_window = false,
+	own_window_type = 'desktop',
+	own_window_transparent = true,
+	own_window_argb_visual = true,
+	own_window_argb_value = 0,
+	own_window_hints = 'undecorated,skip_taskbar,skip_pager,below,sticky',
+	own_window_title = 'drive',
+	minimum_width = 258, minimum_height = 144,
+	maximum_width = 258,
+	alignment = 'top_left',
+	gap_x = 424,
+	gap_y = 168,
+
+-- -- Graphics settings -- #
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+	border_width = 0,
+
+-- -- Text settings -- #
+	use_xft = true,
+	font = 'Roboto Regular:size=4',
+	color1 = '#92deee',
+	color2 = '#668c95',
+	color3 = '#d0fefb',
+	color4 = '#2f3d40',
+	color5 = '#ff6c4a',
+
+	lua_load = '~/Descargas/gitdown/saltedbox/states/debian/conky/conky-osd/mon1/hdd/bargraph_hdd.lua',
+	lua_draw_hook_pre = 'main_bars',
+
+};
+
+conky.text = [[
+${voffset 4}$color1${font Roboto Light:size=5}MEMORY & DRIVES${font}
+#Ram info#
+${font :size=6}${goto 430}${voffset 9}${color2}${mem}${color}
+${goto 580}${voffset -10}${color2}$memmax${color}
+${alignr 40}${voffset -10}${color3}Ram${color}
+#Swap infó#
+${goto 430}${voffset 10}${color2}${swap}${color}
+${goto 560}${voffset -10}${color2}$swapmax${color}
+${alignr 40}${voffset -10}${color1}Swap${color}
+#Root paraméterek#
+${goto 430}${voffset 10}${color2}${fs_used /}${color}
+${goto 560}${voffset -10}${color2}${fs_size /}${color}
+${alignr 40}${voffset -10}${color1}Root${color}
+#Home paraméterek#
+${goto 430}${voffset 10}${color2}${fs_used $HOME}${color}
+${goto 560}${voffset -10}${color2}${fs_size $HOME}${color}
+${alignr 40}${voffset -10}${color1}Home${color}
+#Data paraméterek#
+${goto 430}${voffset 10}${color2}${fs_used $HOME/Documentos/}${color}
+${goto 560}${voffset -10}${color2}${fs_size $HOME/Documentos/}${color}
+${alignr 40}${voffset -10}${color1}Data${color}
+]];

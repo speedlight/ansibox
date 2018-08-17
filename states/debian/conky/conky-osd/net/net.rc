@@ -1,0 +1,89 @@
+# -- Conky settings -- #
+background yes 								#áttetsző háttér
+update_interval 1 							#frissítési idővallum másodpercben
+cpu_avg_samples 2 							#cpu pontosabb monitorozásához
+net_avg_samples 2 							#internet pontosabb monitorozása
+override_utf8_locale yes 						#karakterkódolás felülbírálása
+double_buffer yes							#nem villodzik az ablak
+no_buffers yes
+text_buffer_size 256 							#szöveg buffer mérete
+imlib_cache_size 15000
+max_specials 10000
+max_user_text 15000
+diskio_avg_samples 2 							#meghajtó pontosabb monitorozásához
+format_human_readable yes 						#mértékegységek nem bájtokban
+border_inner_margin 0							#keret és a margó távolsága
+border_outer_margin 0							#ablak és a keret távolsága
+
+# -- Window specifications -- #
+own_window yes 								#saját ablakbeállítások bekapcsolása
+own_window_type normal 							#ablaktípusok, override=ablakmenedzser szabályi nem vonatkoznak rá, desktop=díszítés nélküli panel=mindig felül,  dock=mindig felül, normal=normál
+own_window_transparent yes 						#conky ablak átlátszóvá válik
+own_window_argb_visual yes 						#átlátszó ablak
+own_window_argb_value 0 						#átlátszóság mértéke 0-255
+own_window_hints undecorate,skip_taskbar,skip_pager,below 	#ablak tulajdonságai below=alultartás skip_taskbar=tálca mellőzése undecorated=keret és gombok eltávolítása override=ablakkezelő felülbírálása sticky=minden munkaterületen 
+own_window_title net
+minimum_size 527 300 							#ablak minimum mérete
+maximum_width 527 							#max szélesség
+alignment top_left 							#jobb felső sarokba igazít
+gap_x 770 								#x irányba eltolás
+gap_y 406 								#y irányba eltolás
+
+# -- Graphics settings -- #
+draw_shades no								#szöveg árnyékolása
+draw_outline no								#körülrajzolás
+draw_borders no								#téglalap alakú keretet rajzol
+draw_graph_borders no							#keret a grafikon köré
+border_width 0 								#keret vastagsága
+
+# -- Text settings -- #
+use_xft yes 								#élsimítás
+xftfont Droid Sans:size=8						#alapértelmezett betütípus
+color1 92deee								#előre meghatározott szín
+color2 668c95
+color3 d0fefb
+color4 2f3d40
+color5 ff6c4a
+color6 ff1f34
+
+lua_load ~/Oblivion/desk2/net/rings_net.lua
+lua_load ~/Oblivion/desk2/net/graph.lua
+lua_draw_hook_pre main_rings
+lua_draw_hook_post main_graph
+
+TEXT
+${goto 10}${color1}${font :size=6 :bold}Network Status${font}
+#
+#lan#
+#
+${if_existing /proc/net/route eth0}
+${goto 50}${voffset 80}Public IP: ${goto 140}${execi 3600 wget -q -O - http://icanhazip.com}
+${goto 50}Adress: ${goto 140}${addr eth0}
+${goto 50}${voffset 13}${color2}Download Speed: ${alignr 318}${downspeed eth0}
+${goto 50}${color1}Total Down.: ${alignr 318}${totaldown eth0}
+${goto 50}${color2}Upload Speed: ${alignr 318}${upspeed eth0}
+${goto 50}${color1}Total UP: ${alignr 318}${totalup eth0}
+${if_updatenr 2}${goto 365}${voffset -40}${color6}${font :size=12}OFFLINE${font}${endif}
+${image ~/Oblivion/desk2/net/off2.png -p 268,48 -s 260x19}
+${else}
+#
+#wifi#
+#
+${if_existing /proc/net/route wlan0}
+${goto 318}${voffset 68}${color1}Public IP: ${goto 408}${execi 3600 wget -q -O - http://icanhazip.com}
+${goto 318}Adress: ${goto 408}${addr wlan0}
+${goto 318}${voffset 13}SSID: ${goto 408}${wireless_essid wlan0} - ${wireless_bitrate wlan0}
+${goto 318}Signal: ${goto 408}${wireless_link_qual wlan0}%
+${goto 318}${voffset 13}${color2}Download Speed: ${alignr 50}${downspeed eth0}
+${goto 318}${color1}Total Down.: ${alignr 50}${totaldown eth0}
+${goto 318}${color2}Upload Speed: ${alignr 50}${upspeed eth0}
+${goto 318}${color1}Total UP: ${alignr 50}${totalup eth0}
+${if_updatenr 2}${goto 98}${voffset -90}${color6}${font :size=12}OFFLINE${font}${endif}
+${image ~/Oblivion/desk2/net/off1.png -p 0,48 -s 258x19}
+${else}
+#nincs internet#
+${if_updatenr 2}${goto 98}${voffset 130}${color6}${font :size=12}OFFLINE${font}${endif}
+${image ~/Oblivion/desk2/net/off1.png -p 0,48 -s 258x19}
+${if_updatenr 2}${goto 365}${voffset -32}${color6}${font :size=12}OFFLINE${font}${endif}
+${image ~/Oblivion/desk2/net/off2.png -p 268,48 -s 260x19}
+${endif}
