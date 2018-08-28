@@ -1,4 +1,4 @@
-{%- set default_git_url = 'https://github.com/copycat-killer/awesome-copycats' %}
+{%- set default_git_url = 'https://github.com/lcpz/awesome-copycats' %}
 
 awesome-install:
   pkg.installed:
@@ -24,7 +24,7 @@ add-upstream:
 
 fetch-upstream:
   cmd.run:
-    - name: git fetch upstream
+    - name: git fetch --recurse-submodules upstream
     - cwd: {{ grains.homedir }}/.config/awesome
     - runas: {{ grains.user }}
     - require:
@@ -32,7 +32,7 @@ fetch-upstream:
 
 {{ grains.homedir }}/.config/awesome/rc.lua:
   file.symlink:
-    - target: {{ grains.homedir }}/.config/awesome/themes/speedlight/rc.lua.speedlight
+    - target: {{ grains.homedir }}/.config/awesome/themes/speedlight/rc.lua
     - runas: {{ grains.user }}
     - require:
       - fetch-upstream
