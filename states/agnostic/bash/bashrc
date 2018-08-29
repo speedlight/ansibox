@@ -50,7 +50,7 @@ GIT_PS1_STATESEPARATOR="|"
 GIT_PS1_SHOWCOLORHINTS=1 
 
 if [ "$color_prompt" = yes ]; then
-        export PS1='\[\e[38;5:009m\][\h]\[\e[38;5;013m\]⌥ \[\e[38;5;012m\][\w] \n\[\e[38;5;013m\]⎇ \[$(__git_ps1)\] \[\e[0;032m\]'
+        export PS1='\[\e[38;5:009m\][\h]\[\e[38;5;013m\]⌥ \[\e[38;5;012m\][\w] \[$(__git_ps1)\] \n\[\e[38;5;013m\]⎇ \[\e[0;032m\]'
     else
         export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     fi
