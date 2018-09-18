@@ -1,5 +1,0 @@
-base:
-  '*':
-    - setup
-    - cli
-    - desktop

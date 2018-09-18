@@ -1,0 +1,13 @@
+---
+username: speedlight
+pkgs:
+    - xclip 
+    - nmap
+    - python3-pip
+    - python-pip
+    - htop
+    - dnsutils
+    - curl
+    - tree
+    - libcairo2
+    - lua5.3

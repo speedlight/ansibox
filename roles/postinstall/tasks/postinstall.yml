@@ -1,0 +1,20 @@
+---
+# basic configuration and preparation of the system.
+
+- name: sources config
+  become: yes
+  copy:
+      src: sources.list
+      dest: /etc/apt/sources.list
+
+- name: update cache
+  become: yes
+  apt:
+      update_cache: yes
+      #upgrade: dist
+      #autoclean: yes
+      #autoremove: yes
+
+- name: install initial packages 
+  apt: name={{ item }} state=latest 
+  with_items: "{{ pkgs }}"

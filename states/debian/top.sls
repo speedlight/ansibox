@@ -1,4 +1,0 @@
-debian:
-  '*':
-    - setup
-    - desktop

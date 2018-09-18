@@ -1,0 +1,10 @@
+---
+# distro global adjusments
+- name: user creation
+  become: yes
+  user:
+      name: "{{ username }}"
+      shell: /bin/bash
+      groups: sudo
+      append: yes
+

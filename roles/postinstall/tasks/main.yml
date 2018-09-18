@@ -1,0 +1,7 @@
+---
+    - name: initial configuration of the system
+      import_tasks: postinstall.yml 
+    - name: global system configuration
+      import_tasks: activation.yml
+#   - name: desktop provision
+#   # import_tasks: desktop.yml 
