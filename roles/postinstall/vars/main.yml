@@ -11,3 +11,7 @@ pkgs:
     - tree
     - libcairo2
     - lua5.3
+    - neovim
+    - python3-neovim
+    - git
+    - tig

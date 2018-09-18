@@ -16,5 +16,6 @@
       #autoremove: yes
 
 - name: install initial packages 
+  become: yes
   apt: name={{ item }} state=latest 
   with_items: "{{ pkgs }}"
