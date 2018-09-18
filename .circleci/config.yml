@@ -11,7 +11,7 @@ jobs:
 
       - run:
           name: Install aws-cli and ansible
-          command: pip install --upgrade awscli ansible
+          command: sudo pip install --upgrade awscli ansible
 
 workflows:
     version: 2
