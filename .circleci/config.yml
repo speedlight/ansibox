@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/code
     docker:
       - image: circleci/python:3
     steps:
@@ -13,3 +12,9 @@ jobs:
       - run:
           name: Install aws-cli and ansible
           command: pip install --upgrade awscli ansible
+
+workflows:
+    version: 2
+    build-deploy:
+        jobs:
+            - build
