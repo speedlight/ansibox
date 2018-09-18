@@ -4,12 +4,12 @@ jobs:
         working_directory: ~/code
         docker:
             - image: circleci:python:3.7
-    steps:
-        - checkout
-        - run:
-          name: Install systems dependencies
-          command: apt-get update && apt-get install -y python-pip
+        steps:
+            - checkout
+            - run:
+              name: Install systems dependencies
+              command: apt-get update && apt-get install -y python-pip
 
-        - run:
-          name: Install aws-cli and ansible
-          command: pip install --upgrade awscli ansible
+            - run:
+              name: Install aws-cli and ansible
+              command: pip install --upgrade awscli ansible
