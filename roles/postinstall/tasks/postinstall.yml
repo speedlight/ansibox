@@ -1,5 +1,5 @@
 ---
-# basic configuration and preparation of the system.
+# basic config and setup of the system.
 
 - name: sources config
   become: yes
