@@ -1,9 +1,19 @@
 ---
-  - name: initial configuration of the system
-    import_tasks: postinstall.yml 
+- name: sources config
+  become: yes
+  copy:
+      src: sources.list
+      dest: /etc/apt/sources.list
 
-  - name: global system configuration
-    import_tasks: activation.yml
+- name: update cache
+  become: yes
+  apt:
+      update_cache: yes
+      #upgrade: dist
+      #autoclean: yes
+      #autoremove: yes
 
-# - name: desktop provision
-#   import_tasks: desktop.yml 
+- name: install initial packages 
+  become: yes
+  apt: name={{ item }} state=latest 
+  with_items: "{{ pkgs }}"

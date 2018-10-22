@@ -11,7 +11,7 @@
                 64616263316637303832653430333835353339623934396636376539653435313038366539336233
                 3265653232306230380a643339363363326531323631366264653332376131333935633462626233
                 62663561653031363062303937336431333661663663393665323930343037643162"
-      shell: /bin/bash
+      shell: /bin/zsh
       groups: sudo
       append: yes
 
@@ -24,3 +24,14 @@
       group: "{{ username }}"
       mode: 0644
 
+- name: zsh configuration
+  become: yes
+  copy:
+      src: dotfiles/zshrc
+      dest: /home/{{ username }}/.zshrc
+      owner: "{{ username }}"
+      group: "{{ username }}"
+      mode: 0644
+
+- name: oh-my-zsh install
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

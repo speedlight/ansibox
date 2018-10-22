@@ -16,3 +16,5 @@ pkgs:
     - git
     - tig
     - whois
+    - zsh
+    - zsh-syntax-highlighting

@@ -1,4 +1,0 @@
----
-- hosts: vortex
-  roles:
-      - role: postinstall
