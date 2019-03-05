@@ -1,0 +1,6 @@
+---
+- name: install personal packages 
+  become: yes
+  apt:
+      name: "{{ activation_pkgs }}"
+      state: latest 

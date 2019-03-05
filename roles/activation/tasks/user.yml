@@ -1,0 +1,39 @@
+---
+- name: personal user creation
+  become: yes
+  user:
+      name: "{{ username }}"
+      password: ""
+      shell: /bin/zsh
+      groups: sudo
+      append: yes
+
+- name: bash configuration
+  become: yes
+  copy:
+      src: dotfiles/bashrc
+      dest: /home/{{ username }}/.bashrc
+      owner: "{{ username }}"
+      group: "{{ username }}"
+      mode: 0644
+
+- name: zsh configuration
+  become: yes
+  copy:
+      src: dotfiles/zshrc
+      dest: /home/{{ username }}/.zshrc
+      owner: "{{ username }}"
+      group: "{{ username }}"
+      mode: 0644
+
+- name: oh-my-zsh install
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+- name: oh-my-zsh configuration
+  become: yes
+  copy:
+      src: dotfiles/oh-my-zsh
+      dest: /home/{{ username }}/.oh-my-zsh
+      owner: "{{ username }}"
+      group: "{{ username }}"
+      mode: 0755
