@@ -1,2 +1,4 @@
+[test]
 testbox ansible_host=50.30.30.9 ansible_user=vagrant
-vortex ansible_host=172.16.2.10
+[localhost]
+vortex ansible_host=localhost ansible_connection=local

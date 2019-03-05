@@ -14,8 +14,8 @@ Vagrant.configure("2") do |config|
   config.vm.network :private_network, ip: "50.30.30.9"
   config.ssh.insert_key = false
   config.ssh.forward_agent = true
-  config.vm.provision "file", source: "~/.ssh/vagrantkey.pub", destination: "~/.ssh/authorized_keys"
-  config.ssh.private_key_path = [ "~/.ssh/vagrantkey", "~/.vagrant.d/insecure_private_key" ]
+  config.vm.provision "file", source: "files/keys/vagrantkey.pub", destination: "~/.ssh/authorized_keys"
+  config.ssh.private_key_path = [ "~files/keys/vagrantkey", "~/.vagrant.d/insecure_private_key" ]
 
   #config.vm.provision "ansible" do |ansible|
   #  #ansible.verbose = "vv"
