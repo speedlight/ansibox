@@ -1,13 +1,4 @@
 ---
-- name: personal user creation
-  become: yes
-  user:
-      name: "{{ username }}"
-      password: ""
-      shell: /bin/zsh
-      groups: sudo
-      append: yes
-
 - name: bash configuration
   become: yes
   copy:

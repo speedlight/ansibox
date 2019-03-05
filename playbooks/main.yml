@@ -1,8 +1,10 @@
 ---
 - hosts: all
   become: yes
+
   roles:
     - role: postinstall
       tags: initial_setup
+
     - role: activation
       tags: user_env
