@@ -4,3 +4,5 @@
   apt:
       name: "{{ activation_pkgs }}"
       state: latest 
+
+- import_tasks: user.yml

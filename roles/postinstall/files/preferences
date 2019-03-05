@@ -1,0 +1,9 @@
+Package: *
+Pin: release o=Debian,a=testing
+Pin-Priority: 900
+Package: *
+Pin: release o=Debian,a=unstable
+Pin-Priority: 500
+Package: *
+Pin: release o=Debian,a=experimental
+Pin-Priority: -10

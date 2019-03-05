@@ -2,6 +2,11 @@
 postinstall_pkgs:
     - python-apt
     - apt-transport-https
+    - git
+    - libssl-dev
+    - libbz2-dev
+    - libreadline-dev
+    - libsqlite3-dev
 
 common_pkgs:
     - htop

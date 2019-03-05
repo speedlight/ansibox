@@ -1,5 +1,5 @@
 ---
-- hosts: testbox
+- hosts: all
   become: yes
   roles:
     - role: postinstall

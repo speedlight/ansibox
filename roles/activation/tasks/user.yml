@@ -12,28 +12,28 @@
   become: yes
   copy:
       src: dotfiles/bashrc
-      dest: /home/{{ username }}/.bashrc
-      owner: "{{ username }}"
-      group: "{{ username }}"
-      mode: 0644
-
-- name: zsh configuration
-  become: yes
-  copy:
-      src: dotfiles/zshrc
-      dest: /home/{{ username }}/.zshrc
+      dest: "/home/{{ username }}/.bashrc"
       owner: "{{ username }}"
       group: "{{ username }}"
       mode: 0644
 
 - name: oh-my-zsh install
-  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  git: "repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{ username }}/.oh-my-zsh"
 
-- name: oh-my-zsh configuration
+- name: zsh configuration
   become: yes
   copy:
-      src: dotfiles/oh-my-zsh
-      dest: /home/{{ username }}/.oh-my-zsh
+      src: dotfiles/zshrc
+      dest: "/home/{{ username }}/.zshrc"
       owner: "{{ username }}"
       group: "{{ username }}"
-      mode: 0755
+      mode: 0644
+
+  #- name: oh-my-zsh configuration
+  #  become: yes
+  #  copy:
+  #      src: dotfiles/oh-my-zsh
+  #      dest: "/home/{{ username }}/.oh-my-zsh"
+  #      owner: "{{ username }}"
+  #      group: "{{ username }}"
+  #      mode: 0755

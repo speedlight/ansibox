@@ -10,6 +10,11 @@
       src: sources.list
       dest: /etc/apt/sources.list
 
+- name: apt pinning
+  copy:
+      src: preferences
+      dest: /etc/apt/preferences
+
 - name: update cache
   become: yes
   apt:
