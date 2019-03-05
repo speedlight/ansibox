@@ -17,8 +17,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "~/.ssh/vagrantkey.pub", destination: "~/.ssh/authorized_keys"
   config.ssh.private_key_path = [ "~/.ssh/vagrantkey", "~/.vagrant.d/insecure_private_key" ]
 
-  config.vm.provision "ansible" do |ansible|
-    #ansible.verbose = "vv"
-    ansible.playbook = "playbooks/main.yml"
-  end
+  #config.vm.provision "ansible" do |ansible|
+  #  #ansible.verbose = "vv"
+  #  ansible.playbook = "playbooks/main.yml"
+  #end
 end
