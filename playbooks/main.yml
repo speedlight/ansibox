@@ -1,6 +1,8 @@
 ---
-- hosts: local
+- hosts: testbox
   become: yes
   roles:
     - role: postinstall
       tags: initial_setup
+    - role: activation
+      tags: user_env

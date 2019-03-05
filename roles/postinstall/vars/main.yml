@@ -1,20 +1,17 @@
 ---
-username: speedlight
-pkgs:
-    - xclip 
-    - nmap
-    - python3-pip
-    - python-pip
+postinstall_pkgs:
+    - python-apt
+    - apt-transport-https
+
+common_pkgs:
     - htop
-    - dnsutils
-    - curl
-    - tree
-    - libcairo2
-    - lua5.3
+    - vim
     - neovim
     - python3-neovim
-    - git
-    - tig
-    - whois
+    - nmap
+    - tmux
     - zsh
     - zsh-syntax-highlighting
+    - tree
+    - dnsutils
+    - curl

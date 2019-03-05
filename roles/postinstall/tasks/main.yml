@@ -1,6 +1,11 @@
 ---
-- name: sources config
+- name: install base packages 
   become: yes
+  apt:
+      name: "{{ postinstall_pkgs }}"
+      state: latest 
+
+- name: sources config
   copy:
       src: sources.list
       dest: /etc/apt/sources.list
@@ -9,11 +14,12 @@
   become: yes
   apt:
       update_cache: yes
-      #upgrade: dist
-      #autoclean: yes
-      #autoremove: yes
+      upgrade: dist
+      autoclean: yes
+      autoremove: yes
 
-- name: install initial packages 
+- name: install common packages 
   become: yes
-  apt: name={{ item }} state=latest 
-  with_items: "{{ pkgs }}"
+  apt:
+      name: "{{ common_pkgs }}"
+      state: latest 
