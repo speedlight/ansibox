@@ -1,0 +1,36 @@
+---
+- name: "Copying neovim config... "
+  copy:
+    src: "nvim/{{ item }}"
+    dest: "/home/{{ username }}/.config/nvim/"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644  
+  loop:
+    - init.vim
+    - colors
+
+- name: "Dein download... "
+  shell:
+    cmd: "curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh"
+    chdir: /tmp
+
+- name: "Creating dein directory... "
+  file:
+    path: "/home/{{ username }}/.config/dein"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0755
+    state: directory
+  become_user: "{{ username }}"
+
+- name: "Installing dein... "
+  shell:
+    cmd: "sh installer.sh /home/{{ username }}/.config/dein"
+    chdir: /tmp
+  become_user: "{{ username }}"
+
+- name: "neovim plugins update... "
+  shell:
+    cmd: "nvim +'call#update()' +qall"
+  become_user: "{{ username }}"

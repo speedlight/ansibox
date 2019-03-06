@@ -6,3 +6,5 @@
       state: latest 
 
 - import_tasks: user_env.yml
+
+- import_tasks: neovim.yml
