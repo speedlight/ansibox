@@ -1,0 +1,17 @@
+---
+- name: "Copying terminator config... "
+  file:
+    path: "/home/{{ username }}/.config/terminator"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0755
+    state: directory
+  become_user: "{{ username }}"
+
+- name: "Copying terminator config... "
+  copy:
+    src: "terminator/config"
+    dest: "/home/{{ username }}/.config/terminator/config"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644  

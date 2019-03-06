@@ -1,0 +1,42 @@
+[global_config]
+  title_transmit_fg_color = "#d3d0c8"
+  title_transmit_bg_color = "#2d2d2d"
+  title_inactive_fg_color = "#d3d0c8"
+  title_inactive_bg_color = "#747369"
+  always_split_with_profile = True
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    palette = "#2d2d2d:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#d3d0c8:#747369:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#f2f0ec"
+    foreground_color = "#d3d0c8"
+    background_color = "#2d2d2d"
+    cursor_color = "#d3d0c8"
+    cursor_shape = ibeam
+    font = Source Code Pro for Powerline 10
+    icon_bell = False
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[speedlight_light]]
+    palette = "#0c0d0e:#e31a1c:#31a354:#dca060:#3182bd:#756bb1:#80b1d3:#b7b8b9:#737475:#e31a1c:#31a354:#dca060:#3182bd:#756bb1:#80b1d3:#fcfdfe"
+    foreground_color = "#515253"
+    background_color = "#fcfdfe"
+    cursor_color = "#515253"
+    cursor_shape = ibeam
+    font = Source Code Pro for Powerline 10
+    icon_bell = False
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
