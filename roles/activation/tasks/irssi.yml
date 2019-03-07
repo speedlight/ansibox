@@ -1,0 +1,12 @@
+---
+- name: "Copying irssi config... "
+  copy:
+    src: "irssi/{{ item }}"
+    dest: "/home/{{ username }}/.irssi/"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644  
+  loop:
+    - config
+    - thing.theme
+    - certs

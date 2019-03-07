@@ -1,0 +1,13 @@
+---
+activation_pkgs:
+  - xclip 
+  - python3-pip
+  - python-pip
+  - libcairo2
+  - lua5.3
+  - git
+  - tig
+  - whois
+  - glances
+  - ffmpeg
+  - irssi

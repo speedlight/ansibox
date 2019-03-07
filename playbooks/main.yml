@@ -9,5 +9,5 @@
     - role: activation
       tags: user_setup
 
-    - role: dotfiles
-      tags: dots_setup
+    - role: desktop
+      tags: desk_setup
