@@ -1,6 +1,6 @@
 "<-----------------<>------------------>"
 "   Speedlight NeoVim configuration     "
-"       For saltedbox repository        "
+"  For ansi or salted box repository    "
 " https:/github.com/speedlight/dotfiles "
 "<-----------------<>------------------>"
 

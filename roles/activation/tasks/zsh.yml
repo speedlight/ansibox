@@ -1,15 +1,11 @@
 ---
-- name: "Installing dotfiles... "
+- name: "Copying zsh configuration... "
   copy:
-    src: "dotfiles/{{ item }}"
-    dest: "/home/{{ username }}/.{{ item }}"
+    src: "dotfiles/zshrc"
+    dest: "/home/{{ username }}/.zshrc"
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: 0644
-  loop:
-    - bashrc
-    - fonts
-    - tmux.conf
       
 - name: oh-my-zsh install
   git: "repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{ username }}/.oh-my-zsh"
@@ -22,8 +18,3 @@
   #      owner: "{{ username }}"
   #      group: "{{ username }}"
   #      mode: 0755
-
-- name: "Updating fonts cache... "
-  shell:
-      cmd: "fc-cache -fv >/dev/null"
-      chdir: "/home/{{ username }}"
