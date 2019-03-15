@@ -1,17 +1,14 @@
 ---
-- name: "Copying terminator config... "
-  file:
-    path: "/home/{{ username }}/.config/terminator"
-    owner: "{{ username }}"
-    group: "{{ username }}"
-    mode: 0755
-    state: directory
-  become_user: "{{ username }}"
+- name: Copycat
+  git: "repo=https://github.com/speedlight/awesome-copycats.git dest=/home/{{ username }}/.config/awesome recursive=yes track_submodules=yes"
+  become_user: "{{ username }}"  
 
-- name: "Copying terminator config... "
-  copy:
-    src: "terminator/config"
-    dest: "/home/{{ username }}/.config/terminator/config"
+- name: "Speedlight awesome theme... "
+  file:
+    src: "/home/{{ username }}/.config/awesome/themes/speedlight/rc.lua"
+    dest: "/home/{{ username }}/.config/awesome/rc.lua"
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: 0644  
+    state: link
+  become_user: "{{ username }}"  

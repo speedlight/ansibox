@@ -1,5 +1,5 @@
 ---
-- name: install personal packages 
+- name: Installing activation packages 
   become: yes
   apt:
       name: "{{ activation_pkgs }}"

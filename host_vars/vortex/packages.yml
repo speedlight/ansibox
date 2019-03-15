@@ -11,3 +11,7 @@ activation_pkgs:
   - glances
   - ffmpeg
   - irssi
+
+desktop_pkgs:
+  - awesome
+  - awesome-extra

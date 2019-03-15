@@ -1,2 +1,10 @@
 ---
+- name: Installing desktop packages 
+  become: yes
+  apt:
+      name: "{{ desktop_pkgs }}"
+      state: latest 
+
 - import_tasks: terminator.yml
+
+- import_tasks: awesome.yml
