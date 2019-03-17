@@ -1,4 +1,9 @@
 ---
+- name: set hostname
+  become: yes
+  hostname:
+    name: vortex
+
 - name: install base packages 
   become: yes
   apt:

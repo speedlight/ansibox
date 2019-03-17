@@ -1,6 +1,11 @@
 ---
-- name: Copycat
-  git: "repo=https://github.com/speedlight/awesome-copycats.git dest=/home/{{ username }}/.config/awesome recursive=yes track_submodules=yes"
+- name: Cloning speedlight copycat
+  git:
+    repo: "git@github.com:speedlight/awesome-copycats.git"
+    dest: "/home/{{ username }}/.config/awesome"
+    recursive: true
+    track_submodules: true
+    key_file: "/home/{{ username }}/.ssh/gitkey"
   become_user: "{{ username }}"  
 
 - name: "Speedlight awesome theme... "

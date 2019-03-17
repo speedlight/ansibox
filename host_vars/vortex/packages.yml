@@ -1,11 +1,32 @@
 ---
-activation_pkgs:
-  - xclip 
+postinstall_pkgs:
+  - python-apt
+  - apt-transport-https
+  - git
+  - libssl-dev
+  - libbz2-dev
+  - libreadline-dev
+  - libsqlite3-dev
+
+common_pkgs:
+  - htop
+  - vim
+  - neovim
+  - python3-neovim
   - python3-pip
   - python-pip
+  - nmap
+  - tmux
+  - zsh
+  - zsh-syntax-highlighting
+  - tree
+  - dnsutils
+  - curl
+
+activation_pkgs:
+  - xclip 
   - libcairo2
   - lua5.3
-  - git
   - tig
   - whois
   - glances
@@ -15,3 +36,4 @@ activation_pkgs:
 desktop_pkgs:
   - awesome
   - awesome-extra
+  - firefox-esr
