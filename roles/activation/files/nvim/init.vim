@@ -24,6 +24,7 @@ if dein#load_state('/home/speedlight/.config/dein/')
     call dein#add('scrooloose/nerdtree')
     call dein#add('scrooloose/nerdcommenter')
     call dein#add('vim-airline/vim-airline')
+    call dein#add('ctrlpvim/ctrlp.vim')
 
     " Required:
     call dein#end()
@@ -48,17 +49,13 @@ endif
 " All of your Plugins must be added before the following line
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'jnurmine/Zenburn'
-"Plugin 'kien/ctrlp.vim'
 "Plugin 'nvie/vim-flake8'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'scrooloose/nerdcommenter'
 "Plugin 'Yggdroot/indentLine'
 "Plugin 'hdima/python-syntax'
 "Plugin 'davidhalter/jedi-vim'
 
-" Required:
-
 " Put your non-Plugin stuff after this line
+" Required:
 colors Tomorrow-Night-Eighties
 set encoding=utf-8
 set nu
