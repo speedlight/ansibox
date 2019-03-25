@@ -62,11 +62,12 @@ endif
 colors Tomorrow-Night-Eighties
 set encoding=utf-8
 set nu
+set relativenumber
 set laststatus=2
 set t_Co=256
 set showcmd
 set tabstop=4
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 
 let g:airline_powerline_fonts = 1
@@ -87,9 +88,9 @@ autocmd FileType python set sw=4
 autocmd FileType python set ts=4
 autocmd FileType python set sts=4
 
-autocmd FileType html set sw=2
-autocmd FileType html set ts=2
-autocmd FileType html set sts=2
+autocmd FileType html,yml set sw=2
+autocmd FileType html,yml set ts=2
+autocmd FileType html,yml set sts=2
 
 " Keybinds 
 let mapleader=","
