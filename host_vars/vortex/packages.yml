@@ -37,3 +37,5 @@ desktop_pkgs:
   - awesome
   - awesome-extra
   - firefox-esr
+  - xscreensaver
+  - xscreensaver-gl-extra
