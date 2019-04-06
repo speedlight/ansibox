@@ -4,6 +4,7 @@
   apt:
       name: "{{ desktop_pkgs }}"
       state: latest 
+  tags: desktop_pkgs
 
 - import_tasks: terminator.yml
 

@@ -36,6 +36,7 @@ activation_pkgs:
 desktop_pkgs:
   - awesome
   - awesome-extra
+  - arandr
   - firefox-esr
   - xscreensaver
   - xscreensaver-gl-extra
