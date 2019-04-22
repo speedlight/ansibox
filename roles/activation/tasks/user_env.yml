@@ -11,19 +11,54 @@
     - fonts
     - tmux.conf
       
-- name: oh-my-zsh install
-  git: "repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{ username }}/.oh-my-zsh"
-
-  #- name: oh-my-zsh configuration
-  #  become: yes
-  #  copy:
-  #      src: dotfiles/oh-my-zsh
-  #      dest: "/home/{{ username }}/.oh-my-zsh"
-  #      owner: "{{ username }}"
-  #      group: "{{ username }}"
-  #      mode: 0755
-
 - name: "Updating fonts cache... "
   shell:
       cmd: "fc-cache -fv >/dev/null"
       chdir: "/home/{{ username }}"
+
+- name: "Xresources directory..."
+  file:
+    path: "/home/{{ username }}/.Xresources.d" 
+    state: directory
+    mode: 0755
+  tags: colors
+
+- name: "Download base16 Xresources definition..."
+  get_url:
+    url: https://raw.githubusercontent.com/chriskempson/base16-xresources/master/xresources/base16-{{ base16_scheme }}-256.Xresources
+    dest: "/home/{{ username }}/.Xresources.d/{{ base16_scheme }}-colors"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0655
+  tags: colors
+
+- name: "Appending Xresources.d..."
+  lineinfile:
+    path: "/home/{{ username }}/.Xresources"
+    line: "#include '.Xdefaults.d/colorscheme'"
+    insertafter: EOF
+    create: true
+  tags: colors
+
+- name: "Symlink color scheme..."
+  file:
+    src: "/home/{{ username }}/.Xresources.d/{{ base16_scheme }}-colors"
+    path: "/home/{{ username }}/.Xresources.d/colorscheme"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    state: link
+  tags: colors
+
+- name: "base16-shell repository ..."
+  git: "repo=https://github.com/chriskempson/base16-shell.git dest=/home/{{ username }}/.config/base16-shell"
+  tags: colors
+
+- name: "Symlink color scheme..."
+  file:
+    src: "/home/{{ username }}/.config/base16-shell/scripts/base16-{{ base16_scheme }}.sh"
+    path: "/home/{{ username }}/.base16_theme"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    state: link
+  tags: colors
+

@@ -10,7 +10,6 @@ set runtimepath+=/home/speedlight/.config/dein/repos/github.com/Shougo/dein.vim
 " Required:
 if dein#load_state('/home/speedlight/.config/dein/')
     call dein#begin('/home/speedlight/.config/dein/')
-
     call dein#add('/home/speedlight/.config/dein/')
     call dein#add('/home/speedlight/.config/dein/repos/github.com/Shougo/dein.vim')
 
@@ -18,13 +17,15 @@ if dein#load_state('/home/speedlight/.config/dein/')
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
     call dein#add('Shougo/neomru.vim')
-    call dein#add('Shougo/deoplete.nvim')
+    "call dein#add('Shougo/deoplete.nvim')
 
     " IDE type
     call dein#add('scrooloose/nerdtree')
     call dein#add('scrooloose/nerdcommenter')
     call dein#add('vim-airline/vim-airline')
     call dein#add('ctrlpvim/ctrlp.vim')
+
+    call dein#add('chriskempson/base16-vim')
 
     " Required:
     call dein#end()
@@ -40,15 +41,12 @@ if dein#check_install()
     call dein#install()
 endif
 
-let g:deoplete#enable_at_startup = 1
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-if !exists('g:deoplete#omni#input_patterns')
-    let g:deoplete#omni#input_patterns = {}
-endif
+"let g:deoplete#enable_at_startup = 1
+"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+"if !exists('g:deoplete#omni#input_patterns')
+"    let g:deoplete#omni#input_patterns = {}
+"endif
 
-" All of your Plugins must be added before the following line
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'jnurmine/Zenburn'
 "Plugin 'nvie/vim-flake8'
 "Plugin 'Yggdroot/indentLine'
 "Plugin 'hdima/python-syntax'
@@ -56,7 +54,8 @@ endif
 
 " Put your non-Plugin stuff after this line
 " Required:
-colors Tomorrow-Night-Eighties
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-pop
 set encoding=utf-8
 set nu
 set relativenumber
@@ -93,7 +92,7 @@ autocmd FileType html,yml set sts=2
 let mapleader=","
 " F2 para abrir NERDTree
 map <F2> :NERDTreeToggle<CR>
-" pega sin formato el texto
+" paste without format
 nmap <MouseMiddle> <esc>
 " buffer next/previous
 nnoremap <silent> <F12> :bn<CR>

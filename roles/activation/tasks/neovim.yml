@@ -9,6 +9,9 @@
   loop:
     - init.vim
     - colors
+  tags:
+    - vim
+    - colors
 
 - name: "Dein download... "
   shell:

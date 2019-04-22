@@ -1,14 +1,15 @@
 ---
 - name: Cloning speedlight copycat
+  become_user: "{{ username }}"  
   git:
     repo: "git@github.com:speedlight/awesome-copycats.git"
     dest: "/home/{{ username }}/.config/awesome"
     recursive: true
     track_submodules: true
     key_file: "/home/{{ username }}/.ssh/gitkey"
-  become_user: "{{ username }}"  
 
 - name: "Speedlight awesome theme... "
+  become_user: "{{ username }}"  
   file:
     src: "/home/{{ username }}/.config/awesome/themes/speedlight/rc.lua"
     dest: "/home/{{ username }}/.config/awesome/rc.lua"
@@ -16,4 +17,3 @@
     group: "{{ username }}"
     mode: 0644  
     state: link
-  become_user: "{{ username }}"  

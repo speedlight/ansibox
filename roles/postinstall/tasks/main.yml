@@ -27,9 +27,11 @@
       upgrade: dist
       autoclean: yes
       autoremove: yes
+  when: init_pkgs
 
 - name: install common packages 
   become: yes
   apt:
       name: "{{ common_pkgs }}"
       state: latest 
+  when: init_pkgs

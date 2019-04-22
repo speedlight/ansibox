@@ -5,10 +5,10 @@
       name: "{{ activation_pkgs }}"
       state: latest 
 
-- import_tasks: user_env.yml
-
 - import_tasks: neovim.yml
 
 - import_tasks: irssi.yml
 
 - import_tasks: zsh.yml
+
+- import_tasks: user_env.yml

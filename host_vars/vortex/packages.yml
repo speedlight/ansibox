@@ -1,4 +1,6 @@
 ---
+init_pkgs: false
+
 postinstall_pkgs:
   - python-apt
   - apt-transport-https
@@ -32,11 +34,14 @@ activation_pkgs:
   - glances
   - ffmpeg
   - irssi
+  - fonts-3270
 
 desktop_pkgs:
   - awesome
   - awesome-extra
   - arandr
   - firefox-esr
+  - ranger
+  - zathura
   - xscreensaver
   - xscreensaver-gl-extra
