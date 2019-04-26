@@ -27,6 +27,8 @@ if dein#load_state('/home/speedlight/.config/dein/')
 
     call dein#add('chriskempson/base16-vim')
 
+    call dein#add('tpope/vim-fugitive')
+
     " Required:
     call dein#end()
     call dein#save_state()
