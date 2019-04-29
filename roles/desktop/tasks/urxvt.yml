@@ -1,0 +1,16 @@
+---
+- name: "Copying urxvt config... "
+  copy:
+    src: "urxvt"
+    dest: "/home/{{ username }}/.Xresources.d/urxvt"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644
+  become_user: "{{ username }}"
+
+- name: "Appending Xresources.d urxvt..."
+  lineinfile:
+    path: '/home/{{ username }}/.Xresources'
+    line: '#include ".Xresources.d/urxvt"'
+    insertafter: EOF
+    validate: 'grep urxvt %s' 

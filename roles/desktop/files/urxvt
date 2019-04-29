@@ -1,0 +1,11 @@
+! Urxvt options --------------------------------
+!URxvt*urgentOnBell:	false
+URxvt.insecure: true
+URxvt.saveLines:	3000
+!URxvt.geometry:		105x30
+URxvt.buffered:		true
+URxvt.cursorColor:	red
+URxvt.underlineColor:	yellow
+URxvt.letterSpace: 	-1
+URxvt.title: Speedbox - Speedlight
+URxvt.scrollBar: false

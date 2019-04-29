@@ -19,6 +19,8 @@
 - name: "Xresources directory..."
   file:
     path: "/home/{{ username }}/.Xresources.d" 
+    owner: "{{ username }}"
+    group: "{{ username }}"
     state: directory
     mode: 0755
   tags: colors
@@ -32,12 +34,15 @@
     mode: 0655
   tags: colors
 
-- name: "Appending Xresources.d..."
+- name: "Appending Xresources.d colorscheme..."
   lineinfile:
-    path: "/home/{{ username }}/.Xresources"
-    line: "#include '.Xdefaults.d/colorscheme'"
+    path: '/home/{{ username }}/.Xresources'
+    line: '#include ".Xresources.d/colorscheme"'
+    owner: "{{ username }}"
+    group: "{{ username }}"
     insertafter: EOF
     create: true
+    validate: 'grep colorscheme %s' 
   tags: colors
 
 - name: "Symlink color scheme..."

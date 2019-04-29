@@ -3,6 +3,7 @@
   become: yes
   vars:
     - base16_scheme: pop
+    - set_awesome: false
 
   roles:
     - role: postinstall
