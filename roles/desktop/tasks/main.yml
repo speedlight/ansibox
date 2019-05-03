@@ -6,6 +6,14 @@
       state: latest 
   tags: desktop_pkgs
 
+- name: Xscreensaver config
+  copy:
+    src: "xscreensaver"
+    dest: "home/{{ username }}/.xscreensaver"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0644  
+
 - import_tasks: terminator.yml
 - import_tasks: urxvt.yml
 
