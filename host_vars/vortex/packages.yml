@@ -44,4 +44,5 @@ desktop_pkgs:
   - ranger
   - zathura
   - xscreensaver
-  - xscreensaver-gl-extra
+  - xscreensaver-data-extra
+  - xfce4-screenshooter
