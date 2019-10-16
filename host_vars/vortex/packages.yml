@@ -35,6 +35,7 @@ activation_pkgs:
   - ffmpeg
   - irssi
   - fonts-3270
+  - net-tools
 
 desktop_pkgs:
   - awesome
@@ -45,3 +46,4 @@ desktop_pkgs:
   - zathura
   - xscreensaver
   - xscreensaver-gl-extra
+  - xfce4-screenshooter
