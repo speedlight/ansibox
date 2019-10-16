@@ -9,7 +9,7 @@
 - name: Xscreensaver config
   copy:
     src: "xscreensaver"
-    dest: "home/{{ username }}/.xscreensaver"
+    dest: "/home/{{ username }}/.xscreensaver"
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: 0644  
