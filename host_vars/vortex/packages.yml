@@ -13,10 +13,6 @@ postinstall_pkgs:
 common_pkgs:
   - htop
   - vim
-  - neovim
-  - python3-neovim
-  - python3-pip
-  - python-pip
   - nmap
   - tmux
   - zsh
@@ -26,9 +22,9 @@ common_pkgs:
   - curl
 
 activation_pkgs:
-  - xclip 
   - libcairo2
-  - lua5.3
+  - neovim
+  - python3-neovim
   - tig
   - whois
   - glances
@@ -41,8 +37,8 @@ desktop_pkgs:
   - awesome
   - awesome-extra
   - arandr
-  - firefox-esr
   - ranger
+  - terminator
   - zathura
   - xscreensaver
   - xscreensaver-data-extra

@@ -14,6 +14,7 @@
   copy:
       src: sources.list
       dest: /etc/apt/sources.list
+  when: ansible_distribution == 'Debian'
 
 - name: apt pinning
   copy:

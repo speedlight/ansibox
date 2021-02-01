@@ -18,3 +18,4 @@
 - import_tasks: urxvt.yml
 
 - import_tasks: awesome.yml
+  tags: awesome
