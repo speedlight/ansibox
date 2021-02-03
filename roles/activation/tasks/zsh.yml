@@ -7,17 +7,24 @@
     group: "{{ username }}"
     mode: 0644
       
-- name: oh-my-zsh install
-  become: "{{ username }}"
-  git:
-    repo: "https://github.com/robbyrussell/oh-my-zsh.git"
-    dest: "/home/{{ username }}/.oh-my-zsh"
+- name: activate ZSH as default shell
+  become: true
+  become_method: sudo
+  shell: chsh -s $(which zsh)
 
-  #- name: oh-my-zsh configuration
-  #  become: yes
-  #  copy:
-  #      src: dotfiles/oh-my-zsh
-  #      dest: "/home/{{ username }}/.oh-my-zsh"
-  #      owner: "{{ username }}"
-  #      group: "{{ username }}"
-  #      mode: 0755
+- name: Add ohmyzsh
+  become: false
+  #command: /usr/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  command: bash -c 'bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"'
+  #args:
+  #  creates: $HOME/.oh-my-zsh/lib
+  ignore_errors: true
+
+- name: oh-my-zsh configuration
+  become: yes
+  copy:
+    src: dotfiles/oh-my-zsh
+    dest: "/home/{{ username }}/.oh-my-zsh"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: 0755

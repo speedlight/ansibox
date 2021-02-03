@@ -20,6 +20,7 @@
   copy:
       src: preferences
       dest: /etc/apt/preferences
+  when: ansible_distribution == 'Debian'
 
 - name: update cache
   become: yes

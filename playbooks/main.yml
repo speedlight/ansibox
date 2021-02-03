@@ -4,6 +4,7 @@
   vars:
     - base16_scheme: pop
     - set_awesome: true
+    - init_pkgs: true
 
   roles:
     - role: postinstall
