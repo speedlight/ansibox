@@ -13,3 +13,4 @@
   tags: zsh
 
 - import_tasks: user_env.yml
+  tags: basics

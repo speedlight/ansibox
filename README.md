@@ -1,18 +1,19 @@
-My global configuration for Debian with Ansible
+My global configuration for Debian (and Ubuntu) with Ansible
 
-*Details:
-Debian Testing (currently Buster)
+* Details:
+Used mostly in Debian Testing and Ubuntu LTS 18+
 Awesome 3.5+
 zsh & oh-my-zsh
 neovim
+tmux
 mostly lightweight apps
 
-  >>I work with Debian testing, check sources.list and preferences files in postinstall for APT branches configuration
+  >>For Debian testing, check sources.list and preferences files in postinstall for APT branches configuration
 
-*Dependencies:
+* Dependencies:
 - pyenv
 - ansible 2.4+
-- virtualbox + vagrant OR docker (if you wnat to test the config in a container)
+- virtualbox + vagrant OR docker (if you want to test the configuration on a container)
 
 1. Install pyenv with [pyenv-installer](https://github.com/pyenv/pyenv-installer)
    `curl https://pyenv.run | bash`
@@ -21,7 +22,7 @@ mostly lightweight apps
 4. `pipenv install`
 
 3. Run playbook 
-   `ansible-playbook playbook/main.yml`
+   `ansible-playbook playbook/main.yml`-K
 
 *Color scheme:
 

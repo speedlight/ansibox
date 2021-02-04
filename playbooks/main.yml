@@ -14,4 +14,4 @@
       tags: user_setup
 
     - role: desktop
-      tags: desk_setup
+      tags: desktop_setup

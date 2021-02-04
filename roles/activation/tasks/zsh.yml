@@ -7,18 +7,23 @@
     group: "{{ username }}"
     mode: 0644
       
-- name: activate ZSH as default shell
+- name: "Activate ZSH as default shell"
   become: true
   become_method: sudo
   shell: chsh -s $(which zsh)
 
-- name: Add ohmyzsh
-  become: false
+- name: "Checking oh-my-zsh configuration exists" 
+  ansible.builtin.stat:
+    path: "/home/{{ username }}/.oh-my-zsh"
+  register: ohmyzsh
+
+- name: "Install Oh-My-Zsh (if configuration file is not present)"
   #command: /usr/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
   command: bash -c 'bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"'
   #args:
   #  creates: $HOME/.oh-my-zsh/lib
   ignore_errors: true
+  when: ohmyzsh.stat.exists == false
 
 - name: oh-my-zsh configuration
   become: yes
