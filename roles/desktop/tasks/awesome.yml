@@ -6,7 +6,7 @@
     dest: "/home/{{ username }}/.config/awesome"
     recursive: true
     track_submodules: true
-    key_file: "/home/{{ username }}/.ssh/gitkey"
+    key_file: "/home/{{ username }}/.ssh/takion"
     version: speedtheme
   when: set_awesome|bool
 

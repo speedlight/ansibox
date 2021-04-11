@@ -10,6 +10,10 @@
     - role: postinstall
       tags: initial_setup
 
+    - role: gantsign.oh-my-zsh
+      users:
+        - username: speedlight
+
     - role: activation
       tags: user_setup
 

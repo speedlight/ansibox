@@ -1,2 +1,3 @@
 .vagrant/
+external_roles/
 playbooks/main.retry

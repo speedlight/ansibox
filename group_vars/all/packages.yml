@@ -1,8 +1,5 @@
 ---
-init_pkgs: false
-
 postinstall_pkgs:
-  - python-apt
   - apt-transport-https
   - git
   - libssl-dev

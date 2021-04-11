@@ -2,7 +2,7 @@
 - name: set hostname
   become: yes
   hostname:
-    name: vortex
+    name: "{{ inventory_hostname }}"
 
 - name: install base packages 
   become: yes

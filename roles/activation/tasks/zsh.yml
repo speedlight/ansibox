@@ -1,4 +1,15 @@
 ---
+- name: "Checking oh-my-zsh configuration exists" 
+  ansible.builtin.stat:
+    path: "/home/{{ username }}/.oh-my-zsh"
+  register: ohmyzsh
+
+- name: "Install Oh-My-Zsh (if configuration file is not present)"
+  become_user: "{{ username }}"
+  command: bash -c 'bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"'
+  ignore_errors: true
+  when: ohmyzsh.stat.exists == false
+
 - name: "Copying zsh configuration... "
   copy:
     src: "dotfiles/zshrc"
@@ -6,30 +17,8 @@
     owner: "{{ username }}"
     group: "{{ username }}"
     mode: 0644
-      
+
 - name: "Activate ZSH as default shell"
   become: true
   become_method: sudo
   shell: chsh -s $(which zsh)
-
-- name: "Checking oh-my-zsh configuration exists" 
-  ansible.builtin.stat:
-    path: "/home/{{ username }}/.oh-my-zsh"
-  register: ohmyzsh
-
-- name: "Install Oh-My-Zsh (if configuration file is not present)"
-  #command: /usr/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-  command: bash -c 'bash -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"'
-  #args:
-  #  creates: $HOME/.oh-my-zsh/lib
-  ignore_errors: true
-  when: ohmyzsh.stat.exists == false
-
-- name: oh-my-zsh configuration
-  become: yes
-  copy:
-    src: dotfiles/oh-my-zsh
-    dest: "/home/{{ username }}/.oh-my-zsh"
-    owner: "{{ username }}"
-    group: "{{ username }}"
-    mode: 0755
