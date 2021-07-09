@@ -29,6 +29,8 @@ if dein#load_state('/home/speedlight/.config/dein/')
 
     call dein#add('tpope/vim-fugitive')
 
+    call dein#add('tomtom/tcomment_vim')
+
     " Required:
     call dein#end()
     call dein#save_state()

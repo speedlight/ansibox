@@ -74,6 +74,8 @@ plugins=(
   tmux
   vagrant
   vagrant-prompt
+  docker
+  docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh

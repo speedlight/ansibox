@@ -40,3 +40,4 @@ desktop_pkgs:
   - xscreensaver
   - xscreensaver-data-extra
   - xfce4-screenshooter
+  - brightnessctl
